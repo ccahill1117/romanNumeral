@@ -1,8 +1,12 @@
 
 function howBig (inputNo) {
-  if (inputNo >= 10 && inputNo < 99) {
-    var splitInput = inputNo.split('');
-    return (arrayNumTens[splitInput[0]-1]).concat(arrayNumerals[splitInput[1]-1]);
+  if (inputNo > 100) {
+    var splitInput3 = inputNo.split('');
+    return (arrayHundreds[splitInput3[0]-1]).concat((arrayNumTens[splitInput3[1]-1]).concat(arrayNumerals[splitInput3[2]-1]));
+  }
+  else if (inputNo >= 10 && inputNo <= 99) {
+    var splitInput2 = inputNo.split('');
+    return (arrayNumTens[splitInput2[0]-1]).concat(arrayNumerals[splitInput2[1]-1]);
   }
   else if (inputNo <10) {
     var onesNo = inputNo % 10;
@@ -10,8 +14,10 @@ function howBig (inputNo) {
   }
 }
 
-var arrayNumerals = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix",];
-var arrayNumTens = ["x", "xx", "xxx", "xL", "L", "Lx", "Lxx", "Lxxx", "xC", "C"];
+var arrayNumerals = ["I", "I", "I", "IV", "V", "VI", "VI", "VI", "IX",];
+var arrayNumTens = ["X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC", "C"];
+var arrayHundreds = ["C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
+var arrayThousands = ["M", "MM", "MMM"];
 
 
 $(document).ready(function(){
