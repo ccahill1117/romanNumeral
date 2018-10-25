@@ -4,11 +4,20 @@ function howBig (inputNo) {
     var tooBig = ("that number is too big for Roman Numeral counting");
     return tooBig;
   }
-  else if (inputNo < 10) {
-    for (var i = 0; i < (arrayNumerals.length)-1; i++)
-      if (inputNo === arrayNumerals[i]) {
-        return arrayNumerals[i-1];
+  else if (inputNo <= 3999) {
+    var inputArray = inputNo.split('');
+    var resultArray = [];
+    for (var i = 0; i < (arrayNumerals.length+1) ; i++) {
+        if (parseInt(inputArray[3]) === i) {
+        return (arrayNumerals[i-1]);
       }
+
+
+
+
+
+    }
+    return resultArray;
   }
 
   // else if (inputNo > 1000 && inputNo <=3999) {
@@ -30,7 +39,7 @@ function howBig (inputNo) {
   // }
 }
 
-var arrayNumerals = ["I", "I", "I", "IV", "V", "VI", "VI", "VI", "IX",];
+var arrayNumerals = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
 var arrayNumTens = ["X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC", "C"];
 var arrayHundreds = ["C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
 var arrayThousands = ["M", "MM", "MMM"];
