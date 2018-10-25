@@ -1,6 +1,15 @@
 
 function howBig (inputNo) {
-  if (inputNo > 100) {
+  if (inputNo >= 4000) {
+    var tooBig = ("that number is too big for Roman Numeral counting");
+    return tooBig;
+  }
+  else if (inputNo > 1000 && inputNo <=3999) {
+    var splitInput4 = inputNo.split('');
+    return(arrayThousands[splitInput4[0]-1].concat((arrayHundreds[splitInput4[1]-1]).concat((arrayNumTens[splitInput4[2]-1]).concat(arrayNumerals[splitInput4[3]-1]))));
+  }
+
+  else if (inputNo > 100 && inputNo <= 999) {
     var splitInput3 = inputNo.split('');
     return (arrayHundreds[splitInput3[0]-1]).concat((arrayNumTens[splitInput3[1]-1]).concat(arrayNumerals[splitInput3[2]-1]));
   }
