@@ -1,10 +1,17 @@
-function countToTen(inputNo) {
-  var tensNo = inputNo % 10;
-  return arrayNumerals[(tensNo)-1];
+
+function howBig (inputNo) {
+  if (inputNo >= 10 && inputNo < 99) {
+    var splitInput = inputNo.split('');
+    return (arrayNumTens[splitInput[0]-1]).concat(arrayNumerals[splitInput[1]-1]);
   }
+  else if (inputNo <10) {
+    var onesNo = inputNo % 10;
+    return arrayNumerals[(onesNo)-1];
+  }
+}
 
-var arrayNumerals = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix",]
-
+var arrayNumerals = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix",];
+var arrayNumTens = ["x", "xx", "xxx", "xL", "L", "Lx", "Lxx", "Lxxx", "xC", "C"];
 
 
 $(document).ready(function(){
@@ -13,7 +20,7 @@ $(document).ready(function(){
 
 
     var inputNumber = $("#inputNumberField").val();
-    var result = countToTen(inputNumber);
+    var result = howBig(inputNumber);
 
     $(".resultDiv").empty();
     $(".resultDiv").append(result);
